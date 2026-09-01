@@ -1,0 +1,47 @@
+{
+  "schema_version": "ecup-quality-recipe-v1",
+  "solution": "A_soup6",
+  "base_model": "Qwen/Qwen3.5-4B",
+  "input": {
+    "fields": ["category", "name", "description"],
+    "max_len": 1024,
+    "truncation": "description"
+  },
+  "training": {
+    "folds": 5,
+    "seed": 42,
+    "epochs": 2.0,
+    "learning_rate": 0.00015,
+    "rank": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "batch_size": 2,
+    "gradient_accumulation": 16,
+    "class_weight_power": 1.0,
+    "soft_labels": false,
+    "rationale_loss_weight": 0.0
+  },
+  "full_data_ingredient": {
+    "enabled": true,
+    "fixed_steps": 512,
+    "learning_rate": 0.00015,
+    "seed": 42
+  },
+  "soup": {
+    "fold_ingredients": 5,
+    "full_data_ingredients": 1,
+    "expected_rank": 96,
+    "expected_alpha": 192
+  },
+  "thresholds": {
+    "БАД": 0.2123,
+    "Легковоспламеняющиеся": 0.717
+  },
+  "production": {
+    "text_only": true,
+    "retrieval": false,
+    "vlm": false,
+    "post_verdict_rationale": true
+  }
+}
+

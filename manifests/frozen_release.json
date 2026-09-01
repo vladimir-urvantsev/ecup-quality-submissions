@@ -1,0 +1,35 @@
+{
+  "schema_version": "frozen-release-v1",
+  "solution": "A_soup6_rationale",
+  "archive": {
+    "filename": "final_A_soup6_rationale.zip",
+    "sha256": "912440247a450c09163d74c44a533292c9ffc5a8182cd6b411548da305c74b27"
+  },
+  "candidate_manifest": {
+    "member": "candidate_manifest.json",
+    "sha256": "43cf64e28edabe56f26835571848a993e36eba8f4c43190c7e9296844f7faafd",
+    "bytes": 3141
+  },
+  "adapter": {
+    "member": "adapter/adapter_model.safetensors",
+    "sha256": "0becee6617a3a5129a07f0cbabf979e5b8b43cd377bca6ee66ff694ec1b07c56",
+    "bytes": 509642128,
+    "rank": 96,
+    "lora_alpha": 192
+  },
+  "thresholds": {"БАД": 0.2123, "Легковоспламеняющиеся": 0.717},
+  "critical_members": {
+    "run.py": "03580e2c08754d57afdde723269199e1c5c044e78512a764edea4dfed0b7ef29",
+    "run_base.py": "233272485597bbadf952cb198d712e706e99156d2ae7a91a216cc145dbf742db",
+    "safe_overrides.py": "72fa2d6f46cd40a08eee0696019fdedbb9f5a7d38a37cc12b8c1e5a48f15554e"
+  },
+  "public_leaderboard": {
+    "metric": "mean_category_positive_f1",
+    "score": 0.9261642156862745
+  },
+  "retraining_provenance": {
+    "byte_exact_closed": false,
+    "known_ingredients": "five grouped-fold rank-16 endpoints plus one full-data rank-16 endpoint",
+    "gap": "original ingredient checkpoints and independent sixth-ingredient hash are unavailable"
+  }
+}

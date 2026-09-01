@@ -1,0 +1,13 @@
+{
+  "schema_version": "frozen-training-lineage-v1",
+  "artifact": "lora_dataset_plus.jsonl",
+  "sha256": "aeb8fa2bebbe7bbba011d6a7f27c3b506d5c8f42894aed45f910101c0e39df04",
+  "rows": 10028,
+  "official_representatives": 9364,
+  "curated_rows": 664,
+  "curated_label_counts": {"0": 317, "1": 347},
+  "redistributed": false,
+  "status": "frozen input required for historical-lineage retraining",
+  "limitation": "upstream mutable exports are not asserted byte-identical to this artifact"
+}
+

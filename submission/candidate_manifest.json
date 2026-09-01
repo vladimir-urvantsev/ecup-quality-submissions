@@ -1,0 +1,88 @@
+{
+  "anchor_archive_sha256": "d566c838f81956b2856b31309d2e28220a21c79741cab1b574fbd63741087025",
+  "comment_change_only": true,
+  "files": {
+    "README.md": {
+      "bytes": 10117,
+      "sha256": "561c6346837deef636e8eb726672ff85a565f8a92afe01f1f5f74e4ed2f75895"
+    },
+    "adapter/adapter_config.json": {
+      "bytes": 1167,
+      "sha256": "aa8b1934b0bae95f6924655cfbba03445e5a3936bf343200fa9e8b8ea64b98c8"
+    },
+    "adapter/adapter_model.safetensors": {
+      "bytes": 509642128,
+      "sha256": "0becee6617a3a5129a07f0cbabf979e5b8b43cd377bca6ee66ff694ec1b07c56"
+    },
+    "adapter/thresholds.json": {
+      "bytes": 3793,
+      "sha256": "9bacf86abb9a1ee3b22ddf87adf9f960d309e4160ab31fd80776e70a2e331b8e"
+    },
+    "certificate.py": {
+      "bytes": 626,
+      "sha256": "18a74802225663df2f92bd53cb6cc806fb024e4cdc929043b9a22de1e80ee4d5"
+    },
+    "compact_vlm_rationale.py": {
+      "bytes": 22206,
+      "sha256": "9f5cacf44de7d6938fab4a505bbca7f5210c82874f1fb3e93b4d73762b0c88f1"
+    },
+    "metadata.json": {
+      "bytes": 92,
+      "sha256": "0d9f4d7060eac8dab9ea02e68685c2b266b58da4ec6119657892e3483e4eef34"
+    },
+    "posthoc_rationale.py": {
+      "bytes": 18473,
+      "sha256": "b0b59408440d1fb343144d88bd71d3bc9a2a08c49c32138090dbf9cd6ba5a58d"
+    },
+    "production_reviewer_rationale.py": {
+      "bytes": 5325,
+      "sha256": "adb598ad29a5411f601bfbc05dab71766a6491a3afbea122d1028c3219f5d4f7"
+    },
+    "rationale_schema.py": {
+      "bytes": 118506,
+      "sha256": "ed3c2f006cd7c0a62b125874c3408c93ed977bd9e87faf727db52986e18c1228"
+    },
+    "reviewer_rationale_contract.json": {
+      "bytes": 4864,
+      "sha256": "4ee26698af8e493ca748b1cd46620a67e83de01fb0614d545c7589431b2ecbad"
+    },
+    "reviewer_rationale_integration_v1.py": {
+      "bytes": 25557,
+      "sha256": "db10b432f1fd86e2b79846955d2550c53884572d9f3701fb5ca633a4e535b499"
+    },
+    "reviewer_safe_rationale_v1.py": {
+      "bytes": 33864,
+      "sha256": "4d0c630eb47b7933b9d8e4d57ed651f037e971851ae20009c511cd6572d14adf"
+    },
+    "run.py": {
+      "bytes": 7089,
+      "sha256": "03580e2c08754d57afdde723269199e1c5c044e78512a764edea4dfed0b7ef29"
+    },
+    "run_base.py": {
+      "bytes": 15826,
+      "sha256": "233272485597bbadf952cb198d712e706e99156d2ae7a91a216cc145dbf742db"
+    },
+    "safe_overrides.py": {
+      "bytes": 1491,
+      "sha256": "72fa2d6f46cd40a08eee0696019fdedbb9f5a7d38a37cc12b8c1e5a48f15554e"
+    },
+    "text_rule_rationales.py": {
+      "bytes": 32086,
+      "sha256": "dfd8d2a0f5ba513ba6c00eb61335e3c5f9f8f74bdadbfc204dd3bcff0ca512be"
+    }
+  },
+  "reviewer_renderer": {
+    "offline_fact_bank_present": false,
+    "raw_vlm_facts_present": false,
+    "runtime": "production_reviewer_rationale.py",
+    "status": "PASS_STATIC_NO_VLM_BANK",
+    "wire_length": [
+      50,
+      300
+    ]
+  },
+  "schema_version": "soup6-safe-rationale-directory-v1",
+  "score_contract": "run.py, run_base.py, safe_overrides.py, metadata.json and all adapter bytes are exact immutable soup6 members",
+  "status": "ASSEMBLED_SOUP6_SCORE_SAFE_REVIEWER_SAFE_REHEARSAL_REQUIRED",
+  "verdict_invariance_requires_rehearsal": true
+}

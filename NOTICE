@@ -1,0 +1,10 @@
+ECUP product-category classifier, solution A.
+
+This source release references Qwen/Qwen3.5-4B. Qwen model files are not
+included. The trained adapter is a derived model artifact and is distributed,
+if at all, separately from this source tree.
+
+Official competition data, images, curated product cards, predictions and
+training logs are intentionally excluded. Users must obtain those artifacts
+through channels that grant them the required rights.
+
