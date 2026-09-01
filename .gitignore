@@ -1,11 +1,41 @@
-.DS_Store
-__pycache__/
-*.py[cod]
-*.zip
-*.safetensors
+# Local data and model artifacts
+data/*
+!data/README.md
+!data/schema.json
+artifacts/*
+!artifacts/README.md
+!artifacts/checksums.sha256
+!artifacts/historical_checksums.sha256
 *.csv
 *.jsonl
 *.parquet
+*.safetensors
+*.pt
+*.pth
+*.zip
+images/
+models/
+runs/
+preds/
+logs/
+build/
+
+# Credentials and local configuration
 .env
 .env.*
+*.pem
+*.key
+id_rsa*
+id_ed25519*
 
+# Python/editor/OS
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+.idea/
+.vscode/
+.DS_Store

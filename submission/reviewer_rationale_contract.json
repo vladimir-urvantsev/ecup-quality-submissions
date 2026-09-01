@@ -1,0 +1,105 @@
+{
+  "schema_version": "reviewer-rationale-integration-contract-v1",
+  "integration_version": "reviewer-rationale-integration-v1.0.0",
+  "status": "PRODUCTION_PACKAGED_POST_VERDICT_RENDERER",
+  "purpose": "Combine an immutable classifier verdict with conservative exact-text evidence and an optional human-certified compact VLM fact, producing short reviewer-facing Russian prose without changing score or prediction.",
+  "immutable_anchor": {
+    "prediction_is_required_input": true,
+    "score_is_not_an_input_or_output": true,
+    "renderer_may_change_prediction": false,
+    "source_label_gold_score_probability_are_unread": true,
+    "evidence_verdict_disagreement_action": "emit review conflict or retain deterministic fallback; never override"
+  },
+  "priority": [
+    "human-certified source-bound compact visual fact supporting the frozen verdict",
+    "reviewer_safe_rationale_v1 exact-text evidence supporting the frozen verdict",
+    "explicit grounded evidence-versus-verdict conflict",
+    "deterministic honest fallback"
+  ],
+  "moderator_output": {
+    "language": "Russian",
+    "minimum_characters_including_newlines": 50,
+    "maximum_characters_including_newlines": 360,
+    "normal_line_prefixes": ["ВЫВОД:", "ОСНОВАНИЕ:", "КОНТРАСТ:"],
+    "review_line_prefixes": ["ВЫВОД:", "ОСНОВАНИЕ:", "КОНТРАСТ:", "КОНФЛИКТ:"],
+    "exact_text_policy": "Quoted text must be a validated literal span of name or description; no paraphrase may replace it.",
+    "image_policy": "An image observation is quoted only from the exact human-accepted compact output bound to the current source and selected image prefix.",
+    "conflict_policy": "A conflict line is a request for manual review and is never presented as support for the frozen verdict."
+  },
+  "vlm_bank_contract": {
+    "schema_version": "reviewer-compact-vlm-bank-v1",
+    "required_identity": [
+      "id and category equal the current card",
+      "source_projection_sha256 binds id/category/name/description/full image ids/image_content_signature",
+      "input_image_ids is the exact non-empty prefix of current source images",
+      "current source has a 64-hex image_content_signature"
+    ],
+    "required_generation": [
+      "generation_status equals valid",
+      "contract_version equals vlm-fact-lines-v1",
+      "output_sha256 equals SHA256(output)",
+      "the 13-line output passes compact_vlm_rationale strict parsing against only the selected image prefix"
+    ],
+    "required_semantic_review": [
+      "semantic_certification equals human_accepted",
+      "reviewed_by is non-empty",
+      "reviewed_output_sha256 equals SHA256(output)"
+    ],
+    "forbidden_recursive_fields": [
+      "gold",
+      "label",
+      "majority_label",
+      "soft_label",
+      "p_yes",
+      "prediction",
+      "score",
+      "verdict",
+      "official_policy_verdict"
+    ],
+    "raw_model_generation_is_sufficient": false,
+    "wire_or_schema_validity_is_semantic_certification": false
+  },
+  "visual_claim_guard": {
+    "never_allowed_as_image_proof": [
+      "not visible / not shown",
+      "absent / no / without",
+      "empty",
+      "uncertain / appears / probably / possibly",
+      "state=empty or state=explicitly_absent"
+    ],
+    "reason": "A view can positively identify a visible fact but visual non-observation cannot prove that an item or content is absent from the sold product."
+  },
+  "safe_visual_policy_rules": [
+    "BAD-POS-DIRECT-MARKING",
+    "BAD-NEG-EXPLICIT-EXCLUSION",
+    "FLAM-POS-SEPARATE-IN-KIT",
+    "FLAM-POS-FLAMMABLE-CONTENTS",
+    "FLAM-POS-STANDALONE-IGNITION",
+    "FLAM-NEG-INTEGRATED-IGNITION",
+    "FLAM-NEG-COMPONENT",
+    "FLAM-NEG-NOT-PART-OF-PRODUCT",
+    "FLAM-NEG-NO-OPEN-FLAME"
+  ],
+  "bad_assessor_noise_policy": {
+    "sports_nutrition_visual_rule_is_allowlisted": false,
+    "direct_marking_or_explicit_exclusion_disagreeing_with_anchor": "retain anchor, avoid a categorical supporting rationale, quote the opposing exact fact under КОНФЛИКТ, and request manual review",
+    "mention_assessor_error_in_output": false,
+    "infer_no_bad_marking_from_silence": false
+  },
+  "fallbacks": {
+    "missing_vlm": "use reviewer_safe_rationale_v1",
+    "invalid_or_unreviewed_vlm": "use reviewer_safe_rationale_v1 and retain machine-readable rejection issues",
+    "unsupported_visual_absence": "discard the visual claim",
+    "policy_not_allowlisted": "discard the visual rationale",
+    "over_length_evidence": "do not truncate a meaning-bearing claim; use the safe text result or fallback",
+    "no_safe_evidence": "state that a safe grounded basis is unavailable and preserve the classifier verdict"
+  },
+  "out_of_scope": [
+    "classifier training",
+    "threshold selection",
+    "score fusion",
+    "routing or override",
+    "GPU inference",
+    "leaderboard submission"
+  ]
+}

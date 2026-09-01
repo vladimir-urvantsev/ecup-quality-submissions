@@ -1,0 +1,35 @@
+{
+  "schema_version": "frozen-release-v1",
+  "solution": "C_plus2_rationale",
+  "archive": {
+    "filename": "final_C_plus2_rationale.zip",
+    "sha256": "281d5e381bc6356d983f5ee1ed7663e26b235e8f7069b22666efbabacca23ef4"
+  },
+  "candidate_manifest": {
+    "member": "candidate_manifest.json",
+    "sha256": "e7d226d399572bbc1610bd09c60e63304b0ea7ae03a880c970ca395b19417873",
+    "bytes": 3021
+  },
+  "adapter": {
+    "member": "adapter/adapter_model.safetensors",
+    "sha256": "4266858b0739a8bc3c7451b36ac6508f650121caadb348a04ac0f5a5f37a60fb",
+    "bytes": 424707448,
+    "rank": 80,
+    "lora_alpha": 160
+  },
+  "thresholds": {"БАД": 0.2123, "Легковоспламеняющиеся": 0.717},
+  "critical_members": {
+    "run.py": "03580e2c08754d57afdde723269199e1c5c044e78512a764edea4dfed0b7ef29",
+    "run_base.py": "233272485597bbadf952cb198d712e706e99156d2ae7a91a216cc145dbf742db",
+    "safe_overrides.py": "72fa2d6f46cd40a08eee0696019fdedbb9f5a7d38a37cc12b8c1e5a48f15554e"
+  },
+  "public_leaderboard": {
+    "metric": "mean_category_positive_f1",
+    "score": 0.9255540166204985
+  },
+  "retraining_provenance": {
+    "byte_exact_closed": false,
+    "known_ingredients": "five grouped-fold rank-16 validation-selected endpoints",
+    "gap": "original fold checkpoints, logs, OOF rows and standalone threshold report are unavailable"
+  }
+}

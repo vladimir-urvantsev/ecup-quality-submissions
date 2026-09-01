@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ECUP product classification CSV row",
+  "type": "object",
+  "required": ["id", "name", "description", "category", "label"],
+  "properties": {
+    "id": {"type": "integer"},
+    "name": {"type": "string"},
+    "description": {"type": "string"},
+    "category": {"enum": ["БАД", "Легковоспламеняющиеся"]},
+    "label": {"enum": [0, 1]}
+  },
+  "additionalProperties": true
+}
+
