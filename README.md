@@ -1,38 +1,29 @@
-# E-CUP 2026 Quality — submitted solutions
+# Ozon E-CUP 2026 — Quality Measurement Track (8th Place)
 
-Этот репозиторий содержит исходный код двух выбранных посылок задачи
-«Контроль качества». Каждая посылка сохранена в отдельной ветке, чтобы код,
-конфигурация и инструкция воспроизведения не смешивались.
+This repository contains the source code, configurations, and documentation for the two selected final submissions in the **Ozon E-CUP 2026 Quality Measurement** track (8th place overall). Each submission is stored on its own branch to keep source snapshots, configs, and reproduction notes isolated.
 
-| Ветка | Решение | Public score | SHA-256 отправленного ZIP |
+| Branch | Solution | Public Score | Submitted ZIP SHA-256 |
 |---|---|---:|---|
-| `solution-a-soup6` | rank-96 soup: пять fold endpoints и один full-data endpoint | `0.9261642156862745` | `912440247a450c09163d74c44a533292c9ffc5a8182cd6b411548da305c74b27` |
-| `solution-c-plus2` | rank-80 soup: пять fold endpoints | `0.9255540166204985` | `281d5e381bc6356d983f5ee1ed7663e26b235e8f7069b22666efbabacca23ef4` |
+| `solution-a-soup6` | Rank-96 LoRA model soup (5 fold endpoints + 1 full-data endpoint) | `0.9261642156862745` | `912440247a450c09163d74c44a533292c9ffc5a8182cd6b411548da305c74b27` |
+| `solution-c-plus2` | Rank-80 LoRA model soup (5 fold endpoints) | `0.9255540166204985` | `281d5e381bc6356d983f5ee1ed7663e26b235e8f7069b22666efbabacca23ef4` |
 
-Просмотр локально:
+## Browsing the Submissions
 
 ```bash
 git switch solution-a-soup6
-# либо
+# or
 git switch solution-c-plus2
 ```
 
-В корне каждой solution-ветки находятся:
+Each solution branch contains:
 
-- exact source snapshot соответствующей отправленной посылки;
-- SHA-256 manifests и проверка полного 18-member inventory;
-- код подготовки данных, обучения LoRA, оценки, soup assembly и упаковки;
-- документация архитектуры, данных, rationale и ограничений решения;
-- команда побайтной пересборки submitted ZIP из tracked source и сохранённого
-  финального адаптера.
+- Exact source snapshot of the corresponding submission;
+- SHA-256 manifests and 18-member inventory verification checks;
+- Code for data preparation, LoRA fine-tuning, evaluation, model-soup assembly, and submission packaging;
+- Documentation covering architecture, training setup, design rationale, and limitations;
+- Instructions to deterministically rebuild the submitted ZIP from the tracked source and saved final adapter.
 
-Модель обучалась на едином консолидированном наборе, включавшем официальные
-данные соревнования и дополнительный вручную курированный контрастный набор.
-Дополнительные карточки и исходный товарный контент в репозитории не
-распространяются.
+## Data & Binary Artifacts
 
-Финальные ZIP/LoRA weights не коммитятся обычными Git blobs. Их следует
-приложить к тегам `submitted-a` и `submitted-c` как release assets. Базовый
-checkpoint `Qwen/Qwen3.5-4B` предоставляется средой соревнования и также не
-входит в репозиторий.
-
+- The models were fine-tuned on a consolidated dataset combining the official competition data with an additional manually curated contrastive set. Competition product cards and curated data are not redistributed in this repository.
+- Large binary artifacts—including final LoRA adapter weights, submission ZIP archives (checksums recorded in `RELEASE_CHECKSUMS.sha256`), and the base `Qwen/Qwen3.5-4B` checkpoint provided by the competition environment—are not committed to Git.
